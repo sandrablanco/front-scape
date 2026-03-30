@@ -14,7 +14,7 @@ function Game() {
         const data = await response.json()
         setLevel(data.currentLevel)
 
-    }, 
+    }; 
     fetchClient()
   }, [])
   return (
