@@ -21,11 +21,11 @@ function Home() {
 
   return (
     <div>
-      <h1>¡ Bienvenido al Escape Room ! 🔐</h1>
+      <h1>¡Escape Room Unfollow al corazón ❤️! 🔐</h1>
 
       {!client ? (
         <>
-          <p>Hoy en dia el amor moderno es un enigma. Si te has quedado soltero/a y crees en el amor a la antigua ¿Estás listo para resolver los enigmas y encontrar tu verdadero yo dentro de tanto lovebombing, ghosting...?😏</p>
+          <p>En la era del 'visto' y las promesas vacías, el amor moderno se ha convertido en el enigma más difícil de resolver. ¿Cansado de recibir solo migajas o de desaparecer en el vacío del ghosting? Entra en nuestra sala, descifra las señales mezcladas del lovebombing y descubre si eres capaz de encontrar tu verdadero yo antes de que se agote el tiempo... o la batería de tu corazón😏</p>
 
           <Link to="/login">
             <button>Ya tengo cuenta, empezar ya!</button>
