@@ -59,6 +59,7 @@ function Game() {
   return (
     <div className="game">
       <h2>Nivel {client.currentLevel}</h2>
+      <p>Hola {client.name} {level.story}</p>
       <p>{level.description}</p>
       <h3>{level.question}</h3>
       
