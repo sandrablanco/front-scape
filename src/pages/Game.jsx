@@ -70,7 +70,7 @@ function Game() {
       ))}
 
       <input 
-        placeholder="Tu respuesta" 
+        placeholder="Escribe tu respuesta" 
         value={answer} 
         onChange={(e) => setAnswer(e.target.value)} 
       />
