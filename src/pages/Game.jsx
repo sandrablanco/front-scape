@@ -60,6 +60,13 @@ function Game() {
     <div className="game">
       <h2>Nivel {client.currentLevel}</h2>
       <p>Hola {client.name} {level.story}</p>
+      {level.type === 'image' && (
+      <img 
+      src={level.image} 
+      alt="nivel" 
+      style={{ width: '300px' }}
+      />
+       )}
       <p>{level.description}</p>
       <h3>{level.question}</h3>
       
