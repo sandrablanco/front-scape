@@ -125,7 +125,7 @@ function Game() {
       )}
       
       {level.type === 'puzzle' && (
-       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 100px)', gap: '10px' }}>
+       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 100px)', gap: '10px' }}>
        {pieces.map((piece, index) => (
        <img
         key={index}
@@ -142,12 +142,26 @@ function Game() {
     ))}
           {level.type !== 'puzzle' && (
         <>
-          <input
+        {level.type !== 'puzzle' && (
+  <>
+    <input
+      placeholder="Escribe tu respuesta"
+      value={answer}
+      onChange={(e) => setAnswer(e.target.value)}
+    />
+    <button onClick={handleAnswer}>Enviar respuesta</button>
+  </>
+)}
+
+{level.type === 'puzzle' && (
+  <button onClick={checkPuzzle}>Comprobar</button>
+)}
+          {/* <input
             placeholder="Escribe tu respuesta"
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
           />
-          <button onClick={handleAnswer}>Enviar respuesta</button>
+          <button onClick={handleAnswer}>Enviar respuesta</button> */}
         </>
       )}
 
