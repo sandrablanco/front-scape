@@ -123,6 +123,40 @@ function Game() {
           </audio>
         </div>
       )}
+      
+      {level.type === 'puzzle' && (
+       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 100px)', gap: '10px' }}>
+       {pieces.map((piece, index) => (
+       <img
+        key={index}
+        src={piece}          {/*recorremos el array de las fotos de cloudinary*/}
+        alt="pieza"
+        style={{
+          width: '100px',
+          height: '100px',
+          border: selected === index ? '3px solid red' : '1px solid black',
+          cursor: 'pointer'
+        }}
+        onClick={() => handlePieceClick(index)}
+      />
+    ))}
+          {level.type !== 'puzzle' && (
+        <>
+          <input
+            placeholder="Escribe tu respuesta"
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+          />
+          <button onClick={handleAnswer}>Enviar respuesta</button>
+        </>
+      )}
+
+      {level.type === 'puzzle' && (
+        <button onClick={checkPuzzle}>Comprobar</button>
+      )}
+    </div>
+)}
+
 
       <input 
         placeholder="Escribe tu respuesta" 
