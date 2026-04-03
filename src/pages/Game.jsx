@@ -129,7 +129,7 @@ function Game() {
        {pieces.map((piece, index) => (
        <img
         key={index}
-        src={piece}          {/*recorremos el array de las fotos de cloudinary*/}
+        src={piece}          //recorremos el array de las fotos de cloudinary
         alt="pieza"
         style={{
           width: '100px',
