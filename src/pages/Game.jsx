@@ -76,6 +76,15 @@ function Game() {
         </button>
       ))}
 
+      {level.type === 'audio' && (
+        <div>
+          <audio controls>
+          <source src={level.audio} type="audio/mpeg" />
+          Tu navegador no soporta audio
+          </audio>
+        </div>
+      )}
+
       <input 
         placeholder="Escribe tu respuesta" 
         value={answer} 
