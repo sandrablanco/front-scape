@@ -11,21 +11,18 @@ function Game() {
     const fetchClient = async () => {
       const token = localStorage.getItem('token');
       try {
-        // 1. Cargar datos del usuario
         const responseClient = await fetch('http://localhost:3000/auth/me', {
-          headers: { 'Authorization': `Bearer ${token}` } // Uso de backticks
+          headers: { 'Authorization': `Bearer ${token}` }
         });
         const dataClient = await responseClient.json();
         setClient(dataClient);
 
-        // 2. Cargar nivel actual usando el ID del usuario
         const responseLevel = await fetch(`http://localhost:3000/auth/levels/${dataClient.currentLevel}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const levelData = await responseLevel.json();
         setLevel(levelData);
 
-        //shuffle del puzzle
         if (levelData.type === 'puzzle') {
           const shuffled = [...levelData.pieces].sort(() => Math.random() - 0.5);
           setPieces(shuffled);
@@ -40,11 +37,9 @@ function Game() {
   }, []);
 
   const handleAnswer = async () => {
-    // Corregido: trim() es una función
     if (answer.trim().toLowerCase() === level.correctAnswer.toLowerCase()) {
-      alert(`Respuesta correcta {🎉} ${client.name}`);
+      alert(`Respuesta correcta 🎉 ${client.name}`);
       const token = localStorage.getItem('token');
-      
       try {
         await fetch('http://localhost:3000/auth/level', {
           method: 'POST',
@@ -54,7 +49,7 @@ function Game() {
           },
           body: JSON.stringify({ newLevel: client.currentLevel + 1 })
         });
-        window.location.reload(); 
+        window.location.reload();
       } catch (error) {
         console.error("Error al actualizar nivel:", error);
       }
@@ -100,84 +95,63 @@ function Game() {
     <div className="game">
       <h2>Nivel {client.currentLevel}</h2>
       <p>Hola {client.name} {level.story}</p>
+
       {level.type === 'image' && (
-      <img 
-      src={level.image} 
-      alt="nivel" 
-      style={{ width: '300px' }}
-      />
-       )}
+        <img src={level.image} alt="nivel" style={{ width: '300px' }} />
+      )}
+
       <p>{level.description}</p>
       <h3>{level.question}</h3>
-      
+
       {level.options && level.options.map((opt, i) => (
-        <button key={i} onClick={() => setAnswer(opt)}>
-          {opt}
-        </button>
+        <button key={i} onClick={() => setAnswer(opt)}>{opt}</button>
       ))}
-      
+
       {level.type === 'audio' && level.audio && (
         <div>
           <audio controls>
-          <source src={level.audio} type="audio/mpeg" />Reproduce canción
+            <source src={level.audio} type="audio/mpeg" />
+            Reproduce canción
           </audio>
         </div>
       )}
-      
-      {level.type === 'puzzle' && (
-       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 100px)', gap: '10px' }}>
-       {pieces.map((piece, index) => (
-       <img
-        key={index}
-        src={piece}          //recorremos el array de las fotos de cloudinary
-        alt="pieza"
-        style={{
-          width: '100px',
-          height: '100px',
-          border: selected === index ? '3px solid red' : '1px solid black',
-          cursor: 'pointer'
-        }}
-        onClick={() => handlePieceClick(index)}
-      />
-    ))}
-          {level.type !== 'puzzle' && (
-        <>
-        {level.type !== 'puzzle' && (
-  <>
-    <input
-      placeholder="Escribe tu respuesta"
-      value={answer}
-      onChange={(e) => setAnswer(e.target.value)}
-    />
-    <button onClick={handleAnswer}>Enviar respuesta</button>
-  </>
-)}
 
-{level.type === 'puzzle' && (
-  <button onClick={checkPuzzle}>Comprobar</button>
-)}
-          {/* <input
+      {level.type === 'puzzle' && (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 100px)', gap: '10px' }}>
+          {pieces.map((piece, index) => (
+            <img
+              key={index}
+              src={piece}
+              alt="pieza"
+              style={{
+                width: '100px',
+                height: '100px',
+                border: selected === index ? '3px solid red' : '1px solid black',
+                cursor: 'pointer'
+              }}
+              onClick={() => handlePieceClick(index)}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Input y botón solo para niveles que NO son puzzle */}
+      {level.type !== 'puzzle' && (
+        <>
+          <input
             placeholder="Escribe tu respuesta"
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
           />
-          <button onClick={handleAnswer}>Enviar respuesta</button> */}
+          <button onClick={handleAnswer}>Enviar respuesta</button>
         </>
       )}
 
+      {/* Botón comprobar solo para puzzle */}
       {level.type === 'puzzle' && (
         <button onClick={checkPuzzle}>Comprobar</button>
       )}
-    </div>
-)}
 
-
-      <input 
-        placeholder="Escribe tu respuesta" 
-        value={answer} 
-        onChange={(e) => setAnswer(e.target.value)} 
-      />
-      <button onClick={handleAnswer}>Enviar respuesta</button>
     </div>
   );
 }
