@@ -79,7 +79,7 @@ function Game() {
       {level.type === 'audio' && (
         <div>
           <audio controls>
-          <source src="https://suno.com/s/p2V1xmMUZEW7szTL" type="audio/mp3" />Reproduce canción
+          <source src={level.audio} type="audio/mpeg" />Reproduce canción
           </audio>
         </div>
       )}
