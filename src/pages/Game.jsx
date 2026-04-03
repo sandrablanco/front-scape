@@ -70,7 +70,7 @@ function Game() {
   };
 
   const checkPuzzle = async () => {
-    const isCorrect = pieces.every((p, i) => p === level.solution[i]);
+    const isCorrect = pieces.every((p, i) => p === level.correctAnswer[i]);
 
     if (isCorrect) {
       alert(`Puzzle completado: Felicidades ${client.name} 🎉`);
