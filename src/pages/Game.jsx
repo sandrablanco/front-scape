@@ -76,7 +76,7 @@ function Game() {
         </button>
       ))}
       
-      {level.type === 'audio' && (
+      {level.type === 'audio' && level.audio && (
         <div>
           <audio controls>
           <source src={level.audio} type="audio/mpeg" />Reproduce canción
