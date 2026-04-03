@@ -75,17 +75,14 @@ function Game() {
           {opt}
         </button>
       ))}
-       <audio controls>
-       <source src="http://localhost:3000/audio/audio.mp3" />
-       </audio>
-      {/* {level.type === 'audio' && (
+      
+      {level.type === 'audio' && (
         <div>
           <audio controls>
-          <source src={level.audio} type="audio/mpeg" />
-          Tu navegador no soporta audio
+          <source src="https://suno.com/s/p2V1xmMUZEW7szTL" type="audio/mp3" />Reproduce canción
           </audio>
         </div>
-      )} */}
+      )}
 
       <input 
         placeholder="Escribe tu respuesta" 
