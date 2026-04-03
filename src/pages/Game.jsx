@@ -4,6 +4,8 @@ function Game() {
   const [level, setLevel] = useState(null);
   const [answer, setAnswer] = useState('');
   const [client, setClient] = useState(null);
+  const [pieces, setPieces] = useState([]);
+  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
     const fetchClient = async () => {
@@ -22,6 +24,13 @@ function Game() {
         });
         const levelData = await responseLevel.json();
         setLevel(levelData);
+
+        //shuffle del puzzle
+        if (levelData.type === 'puzzle') {
+          const shuffled = [...levelData.pieces].sort(() => Math.random() - 0.5);
+          setPieces(shuffled);
+        }
+
       } catch (error) {
         console.error("Error cargando datos:", error);
       }
@@ -33,7 +42,7 @@ function Game() {
   const handleAnswer = async () => {
     // Corregido: trim() es una función
     if (answer.trim().toLowerCase() === level.correctAnswer.toLowerCase()) {
-      alert('Respuesta correcta 🎉');
+      alert(`Respuesta correcta {🎉} ${client.name}`);
       const token = localStorage.getItem('token');
       
       try {
@@ -50,7 +59,38 @@ function Game() {
         console.error("Error al actualizar nivel:", error);
       }
     } else {
-      alert('Casi pero no 😈 inténtalo de nuevo');
+      alert(`Casi pero no 😈 inténtalo de nuevo ${client.name}`);
+    }
+  };
+
+  const handlePieceClick = (index) => {
+    if (selected === null) {
+      setSelected(index);
+    } else {
+      const newPieces = [...pieces];
+      [newPieces[selected], newPieces[index]] = [newPieces[index], newPieces[selected]];
+      setPieces(newPieces);
+      setSelected(null);
+    }
+  };
+
+  const checkPuzzle = async () => {
+    const isCorrect = pieces.every((p, i) => p === level.solution[i]);
+
+    if (isCorrect) {
+      alert(`Puzzle completado: Felicidades ${client.name} 🎉`);
+      const token = localStorage.getItem('token');
+      await fetch('http://localhost:3000/auth/level', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ newLevel: client.currentLevel + 1 })
+      });
+      window.location.reload();
+    } else {
+      alert(`No está correcto 😈 vuelve a intentarlo ${client.name}`);
     }
   };
 
