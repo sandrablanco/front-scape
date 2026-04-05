@@ -8,8 +8,7 @@ function Game() {
   const [pieces, setPieces] = useState([]);
   const [selected, setSelected] = useState(null);
   const [position, setPosition] = useState(null);
-  const [foundWords, setFoundWords] = useState([]);
-  const [selectedCells, setSelectedCells] = useState([]);
+  
 
   useEffect(() => {
     const fetchClient = async () => {
@@ -268,7 +267,7 @@ function Game() {
 )}
 
       {/* Input y botón solo para niveles que NO son puzzle */}
-      {level.type !== 'puzzle' && level.type !== 'maze' && (
+      {level.type !== 'puzzle' && level.type !== 'maze' && level.type !== 'wordsearch' && level.type !== 'the end' && (
         <>
           <input
             placeholder="Escribe tu respuesta"
