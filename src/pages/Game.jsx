@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import WordSearch from "../components/WordSearch";
 
 function Game() {
   const [level, setLevel] = useState(null);
@@ -7,6 +8,8 @@ function Game() {
   const [pieces, setPieces] = useState([]);
   const [selected, setSelected] = useState(null);
   const [position, setPosition] = useState(null);
+  const [foundWords, setFoundWords] = useState([]);
+  const [selectedCells, setSelectedCells] = useState([]);
 
   useEffect(() => {
     const fetchClient = async () => {
@@ -128,6 +131,24 @@ function Game() {
   }
 };
 
+   const handleRestart = async () => {
+    const token = localStorage.getItem('token');
+    await fetch('http://localhost:3000/auth/level', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({ newLevel: 1 })
+    });
+    window.location.reload();
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/';
+  };
+
   if (!level || !client) return <p>Cargando nivel...</p>;
 
   return (
@@ -154,6 +175,22 @@ function Game() {
           </audio>
         </div>
       )}
+
+      {level.type === 'wordsearch' && (
+      <WordSearch onComplete={async () => {
+       alert(`¡Nivel superado! 🎉 ${client.name}`);
+       const token = localStorage.getItem('token');
+       await fetch('http://localhost:3000/auth/level', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+        },
+       body: JSON.stringify({ newLevel: client.currentLevel + 1 })
+      });
+      window.location.reload();
+   }}  />
+  )}
 
       {level.type === 'puzzle' && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 100px)', gap: '10px' }}>
