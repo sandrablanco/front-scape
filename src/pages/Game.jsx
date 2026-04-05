@@ -231,7 +231,7 @@ function Game() {
 )}
 
       {/* Input y botón solo para niveles que NO son puzzle */}
-      {level.type !== 'puzzle' && level.type !== 'maze' && level.type !== 'the end' (
+      {level.type !== 'puzzle' && level.type !== 'maze' && level.type !== 'the end' && (
         <>
           <input
             placeholder="Escribe tu respuesta"
@@ -246,8 +246,20 @@ function Game() {
       {level.type === 'puzzle' && (
         <button onClick={checkPuzzle}>Comprobar</button>
       )}
+      
+      {level.type === 'the end' && (
+      <div style={{ marginTop: '20px' }}>
+      <h3>✨ Fin del juego ✨</h3>
 
+      <button onClick={handleRestart}>
+      🔄 Volver a empezar
+      </button>
 
+      <button onClick={handleLogout} style={{ marginLeft: '10px' }}>
+      Cerrar sesión
+      </button>
+      </div>
+    )}
     </div>
   );
 }
