@@ -1,15 +1,20 @@
 import {useState} from "react";
 
 const GRID = [
-  ['G','H','O','S','T','I','N','G','A','B','C','D'],
-  ['L','O','V','E','B','O','M','B','I','N','G','E'],
-  ['F','R','X','Q','Z','W','K','P','S','T','U','V'],
-  ['B','R','E','A','D','C','R','U','M','B','I','N'],
-  ['G','H','J','K','L','M','N','O','P','Q','R','S'],
-  ['T','U','V','W','X','Y','Z','A','B','C','D','E'],
+  ['G','H','O','S','T','I','N','G','A','B','C','D','E','F','Z'],
+  ['A','L','O','V','E','B','O','M','B','I','N','G','J','K','O'],
+  ['S','R','X','Q','Z','W','K','P','S','T','U','V','R','L','M'],
+  ['L','B','R','E','A','D','C','R','U','M','B','I','N','G','B'],
+  ['I','H','J','K','L','M','N','O','P','Q','R','S','N','M','I'],
+  ['G','R','Y','R','Q','U','Z','A','N','J','D','E','M','N','E'],
+  ['H','D','E','N','I','N','S','F','L','P','Ñ','R','V','H','I'],
+  ['T','Z','W','G','X','Y','Z','A','B','C','D','E','M','I','N'],
+  ['I','B','T','J','L','F','R','G','N','N','O','G','L','I','G'],
+  ['N','P','M','A','J','L','I','T','A','W','I','Ñ','M','T','X'],
+  ['G','I','V','W','X','Y','Z','A','B','C','H','E','M','U','S'],
 ];
 
-const WORDS = ['GHOSTING', 'LOVEBOMBING', 'BREADCRUMBING'];
+const WORDS = ['GHOSTING', 'LOVEBOMBING', 'BREADCRUMBING', 'GASLIGHTING', 'ZOMBIEING'];
 
 function WordSearch({ onComplete }) {
   const [selected, setSelected] = useState([]);

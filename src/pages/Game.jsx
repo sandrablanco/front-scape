@@ -171,6 +171,7 @@ function Game() {
           <audio controls>
             <source src={level.audio} type="audio/mpeg" />
             Reproduce canción
+            <p>Pista: Eagles-Hotel California que parece que dice en español</p>
           </audio>
         </div>
       )}
@@ -254,7 +255,7 @@ function Game() {
     </div>
     
 
-    {/* CONTROLES */}
+    {/* Controles laberinto*/}
     <div style={{ marginTop: '20px' }}>
       <button onClick={() => move(-1, 0)}>⬆️</button>
       <br />
