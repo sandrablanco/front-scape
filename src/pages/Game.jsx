@@ -186,14 +186,16 @@ function Game() {
     >
       {level.maze.map((row, i) =>
         row.map((cell, j) => {
-          let bg = 'white';
+          let content = '';
 
-          if (cell === 'X') bg = 'black';
-          if (cell === 'E') bg = 'green';
+         if (cell === 'X') content = '🧱';        // muro
+         if (cell === 'E') content = '🗝️';        // meta
+         if (cell === '.') content = '';         // camino vacío
 
-          if (position.x === i && position.y === j) {
-            bg = 'blue';
-          }
+        // jugador (esto sobrescribe todo)
+        if (position.x === i && position.y === j) {
+        content = '🚶‍♀️';
+        }
 
           return (
             <div
@@ -202,7 +204,10 @@ function Game() {
                 width: '50px',
                 height: '50px',
                 border: '1px solid gray',
-                backgroundColor: bg
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '24px',
               }}
             />
           );
