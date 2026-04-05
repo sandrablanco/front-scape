@@ -6,6 +6,7 @@ function Game() {
   const [client, setClient] = useState(null);
   const [pieces, setPieces] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [position, setPosition] = useState(null);
 
   useEffect(() => {
     const fetchClient = async () => {
@@ -22,6 +23,10 @@ function Game() {
         });
         const levelData = await responseLevel.json();
         setLevel(levelData);
+
+        if (levelData.type === 'maze') {
+          setPosition(levelData.start);
+        }
 
         if (levelData.type === 'puzzle') {
           const shuffled = [...levelData.pieces].sort(() => Math.random() - 0.5);
@@ -88,6 +93,40 @@ function Game() {
       alert(`No está correcto 😈 vuelve a intentarlo ${client.name}`);
     }
   };
+  
+  const move = (dx, dy) => {
+  const newX = position.x + dx;
+  const newY = position.y + dy;
+
+  // límites
+  if (
+    newX < 0 ||
+    newY < 0 ||
+    newX >= level.maze.length ||
+    newY >= level.maze[0].length
+  ) return;
+
+  // muro
+  if (level.maze[newX][newY] === 'X') return;
+
+  setPosition({ x: newX, y: newY });
+
+  // llegada a meta
+  if (newX === level.end.x && newY === level.end.y) {
+    alert(`¡Has salido del laberinto ${client.name}! 🎉`);
+
+    const token = localStorage.getItem('token');
+
+    fetch('http://localhost:3000/auth/level', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({ newLevel: client.currentLevel + 1 })
+    }).then(() => window.location.reload());
+  }
+};
 
   if (!level || !client) return <p>Cargando nivel...</p>;
 
@@ -134,6 +173,54 @@ function Game() {
           ))}
         </div>
       )}
+
+      {level.type === 'maze' && position && (
+      <div>
+      <h3>Laberinto 🧩</h3>
+
+      <div
+        style={{
+        display: 'grid',
+        gridTemplateColumns: `repeat(${level.maze[0].length}, 50px)`
+       }}
+    >
+      {level.maze.map((row, i) =>
+        row.map((cell, j) => {
+          let bg = 'white';
+
+          if (cell === 'X') bg = 'black';
+          if (cell === 'E') bg = 'green';
+
+          if (position.x === i && position.y === j) {
+            bg = 'blue';
+          }
+
+          return (
+            <div
+              key={`${i}-${j}`}
+              style={{
+                width: '50px',
+                height: '50px',
+                border: '1px solid gray',
+                backgroundColor: bg
+              }}
+            />
+          );
+        })
+      )}
+    </div>
+
+    {/* CONTROLES */}
+    <div style={{ marginTop: '20px' }}>
+      <button onClick={() => move(-1, 0)}>⬆️</button>
+      <br />
+      <button onClick={() => move(0, -1)}>⬅️</button>
+      <button onClick={() => move(0, 1)}>➡️</button>
+      <br />
+      <button onClick={() => move(1, 0)}>⬇️</button>
+    </div>
+  </div>
+)}
 
       {/* Input y botón solo para niveles que NO son puzzle */}
       {level.type !== 'puzzle' && (
