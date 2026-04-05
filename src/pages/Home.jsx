@@ -14,8 +14,8 @@ function Home() {
         }
       })
         .then(res => res.json())
-        .then(data => setUser(data))
-        .catch(() => setUser(null))
+        .then(data => setClient(data))
+        .catch(() => setClient(null))
     }
   }, [])
 
