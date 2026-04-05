@@ -268,7 +268,7 @@ function Game() {
 )}
 
       {/* Input y botón solo para niveles que NO son puzzle */}
-      {level.type !== 'puzzle' && level.type !== 'maze' && level.type !== 'the end' && (
+      {level.type !== 'puzzle' && level.type !== 'maze' && (
         <>
           <input
             placeholder="Escribe tu respuesta"
