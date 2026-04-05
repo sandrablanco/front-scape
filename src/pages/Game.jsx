@@ -176,7 +176,7 @@ function Game() {
 
       {level.type === 'maze' && position && (
       <div>
-      <h3>Laberinto 🧩</h3>
+      <h3>🧩Intenta escapar del monstruo de tu mente🧩</h3>
 
       <div
         style={{
@@ -209,11 +209,14 @@ function Game() {
                 justifyContent: 'center',
                 fontSize: '24px',
               }}
-            />
+            >
+              {content}
+              </div>
           );
         })
       )}
     </div>
+    
 
     {/* CONTROLES */}
     <div style={{ marginTop: '20px' }}>
