@@ -45,7 +45,7 @@ function Game() {
 
   const handleAnswer = async () => {
     if (answer.trim().toLowerCase() === level.correctAnswer.toLowerCase()) {
-      alert(`Respuesta correcta 🎉 ${client.name}`);
+      alert(`Respuesta correcta ${client.name} 🎉`);
       const token = localStorage.getItem('token');
       try {
         await fetch('http://localhost:3000/auth/level', {
@@ -113,9 +113,9 @@ function Game() {
 
   setPosition({ x: newX, y: newY });
 
-  // llegada a meta
+  // llegada a la meta
   if (newX === level.end.x && newY === level.end.y) {
-    alert(`¡Has salido del laberinto ${client.name}! 🎉`);
+    alert(`¡Has salido del barullo de tu propia mente ${client.name}! 🎉`);
 
     const token = localStorage.getItem('token');
 
@@ -286,10 +286,6 @@ function Game() {
       {level.type === 'the end' && (
       <div style={{ marginTop: '20px' }}>
       <h3>✨ Fin del juego ✨</h3>
-
-      <button onClick={handleRestart}>
-      🔄 Volver a empezar
-      </button>
 
       <button onClick={handleLogout} style={{ marginLeft: '10px' }}>
       Cerrar sesión
