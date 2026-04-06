@@ -26,6 +26,11 @@ function Login() {
 return (
     <div className="loginContainer">
         <div className="loginCard">
+            <img 
+              src="https://res.cloudinary.com/du5e2crvt/image/upload/v1775474709/descargar_zsobmv.png"
+              alt="login"
+              className="loginImage"
+            />
         <h2>Iniciar Sesión</h2>
         <input type="email" placeholder="Escribe aqui tu correo" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Escribe aqui tu contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />

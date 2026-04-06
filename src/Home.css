@@ -19,6 +19,13 @@
   text-align: center;
 }   
 
+.loginImage {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  margin-bottom: 20px;
+}
+
 .homeCard h1 {
   margin-bottom: 20px;
   color: #7b96d6;
