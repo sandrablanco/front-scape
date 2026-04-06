@@ -62,7 +62,7 @@ function WordSearch({ onComplete }) {
         }}>{w}</span>
       ))}</p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: `repeat(${GRID[0].length}, 36px)`, gap: '4px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: `repeat(${GRID[0].length}, 38px)`, gap: '3px' }}>
         {GRID.map((row, rIdx) =>
           row.map((letter, cIdx) => {
             const key = `${rIdx}-${cIdx}`;
@@ -78,7 +78,7 @@ function WordSearch({ onComplete }) {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  backgroundColor: isFound ? '#90EE90' : isSelected ? '#FFD700' : '#f0f0f0',
+                  backgroundColor: isFound ? '#90EE90' : isSelected ? '#ff9d00' : '#f20b73',
                   border: '1px solid #ccc',
                   cursor: 'pointer',
                   fontWeight: 'bold',

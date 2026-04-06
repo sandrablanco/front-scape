@@ -152,7 +152,7 @@ function Game() {
   if (!level || !client) return <p>Cargando nivel...</p>;
 
   return (
-    <body className ="gameBody">
+    <div className ="gameContainer">
     <div className="game">
       <h2>Nivel {client.currentLevel}</h2>
       <p>Hola {client.name} {level.story}</p>
@@ -194,7 +194,7 @@ function Game() {
   )}
 
       {level.type === 'puzzle' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 100px)', gap: '10px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 100px)', gap: '2px' }}>
           {pieces.map((piece, index) => (
             <img
               key={index}
@@ -257,7 +257,7 @@ function Game() {
     
 
     {/* Controles laberinto*/}
-    <div style={{ marginTop: '20px' }}>
+    <div className="controles" style={{ marginTop: '20px' }}>
       <button onClick={() => move(-1, 0)}>⬆️</button>
       <br />
       <button onClick={() => move(0, -1)}>⬅️</button>
@@ -280,7 +280,7 @@ function Game() {
         </>
       )}
 
-      {/* Botón comprobar puzzle */}
+      {/* Botón comprueba puzzle */}
       {level.type === 'puzzle' && (
         <button onClick={checkPuzzle}>Comprobar</button>
       )}
@@ -295,7 +295,7 @@ function Game() {
       </div>
     )}
     </div>
-  </body>
+  </div>
   );
 }
 
