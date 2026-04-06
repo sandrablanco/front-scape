@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import WordSearch from "../components/WordSearch";
+import '../Game.css';
 
 function Game() {
   const [level, setLevel] = useState(null);
@@ -151,6 +152,7 @@ function Game() {
   if (!level || !client) return <p>Cargando nivel...</p>;
 
   return (
+    <body className ="gameBody">
     <div className="game">
       <h2>Nivel {client.currentLevel}</h2>
       <p>Hola {client.name} {level.story}</p>
@@ -284,7 +286,7 @@ function Game() {
       )}
       
       {level.type === 'the end' && (
-      <div style={{ marginTop: '20px' }}>
+      <div className="end-game">
       <h3>✨ Fin del juego ✨</h3>
 
       <button onClick={handleLogout} style={{ marginLeft: '10px' }}>
@@ -293,6 +295,7 @@ function Game() {
       </div>
     )}
     </div>
+  </body>
   );
 }
 
