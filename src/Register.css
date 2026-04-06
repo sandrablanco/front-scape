@@ -28,7 +28,7 @@
 .registerCard input {
     padding: 10px;
     border: 1px solid #07a5bdf5;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 15px;
 }
 
@@ -37,7 +37,7 @@
     background-color: #095f84;
     color: #121b2f;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
 
