@@ -23,11 +23,13 @@ function Login() {
     }
 }
 return (
-    <div className="login">
+    <div className="loginContainer">
+        <div className="loginCard">
         <h2>Iniciar Sesión</h2>
         <input type="email" placeholder="Escribe aqui tu correo" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Escribe aqui tu contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button onClick={handleLogin}>Iniciar Sesión</button>
+        </div>
     </div>
 
 )

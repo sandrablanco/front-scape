@@ -9,7 +9,7 @@
 }
 
 .registerCard {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(91, 180, 240, 0.648);
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -22,19 +22,19 @@
 
 .registerCard h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: #33446b;
 }
 
 .registerCard input {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #07a5bdf5;
     border-radius: 5px;
     font-size: 15px;
 }
 
 .registerCard button {
     padding: 10px;
-    background-color: #0162ca;
+    background-color: #095f84;
     color: white;
     border: none;
     border-radius: 5px;
