@@ -15,7 +15,7 @@ function Game() {
     const fetchClient = async () => {
       const token = localStorage.getItem('token');
       try {
-        const responseClient = await fetch('${import.meta.env.VITE_API_URL}/auth/me', {
+        const responseClient = await fetch(`${import.meta.env.VITE_API_URL}/auth/me`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const dataClient = await responseClient.json();
@@ -49,7 +49,7 @@ function Game() {
       alert(`Respuesta correcta ${client.name} 🎉`);
       const token = localStorage.getItem('token');
       try {
-        await fetch('${import.meta.env.VITE_API_URL}/auth/level', {
+        await fetch(`${import.meta.env.VITE_API_URL}/auth/level`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ function Game() {
     if (isCorrect) {
       alert(`Puzzle completado: Felicidades ${client.name} 🎉`);
       const token = localStorage.getItem('token');
-      await fetch('${import.meta.env.VITE_API_URL}/auth/level', {
+      await fetch(`${import.meta.env.VITE_API_URL}/auth/level`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ function Game() {
 
     const token = localStorage.getItem('token');
 
-    fetch('${import.meta.env.VITE_API_URL}/auth/level', {
+    fetch(`${import.meta.env.VITE_API_URL}/auth/level`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ function Game() {
 
    const handleRestart = async () => {
     const token = localStorage.getItem('token');
-    await fetch('${import.meta.env.VITE_API_URL}/auth/level', {
+    await fetch(`${import.meta.env.VITE_API_URL}/auth/level`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -181,7 +181,7 @@ function Game() {
       <WordSearch onComplete={async () => {
        alert(`¡Nivel superado! 🎉 ${client.name}`);
        const token = localStorage.getItem('token');
-       await fetch('${import.meta.env.VITE_API_URL}/auth/level', {
+       await fetch(`${import.meta.env.VITE_API_URL}/auth/level`, {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
