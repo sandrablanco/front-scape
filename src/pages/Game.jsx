@@ -171,7 +171,6 @@ function Game() {
           <audio controls>
             <source src={level.audio} type="audio/mpeg" />
             Reproduce canción
-            <p>Pista: Eagles-Hotel California que parece que dice en español</p>
           </audio>
         </div>
       )}
@@ -227,9 +226,9 @@ function Game() {
 
          if (cell === 'X') content = '🧱';        // muro
          if (cell === 'E') content = '🗝️';        // meta
-         if (cell === '.') content = '';         // camino vacío
+         if (cell === '.') content = '';         // camino libre
 
-        // jugador (esto sobrescribe todo)
+        // jugador 
         if (position.x === i && position.y === j) {
         content = '🚶‍♀️';
         }
@@ -267,7 +266,7 @@ function Game() {
   </div>
 )}
 
-      {/* Input y botón solo para niveles que NO son puzzle */}
+      {/* Input y botón para nivel 1, 2 */}
       {level.type !== 'puzzle' && level.type !== 'maze' && level.type !== 'wordsearch' && level.type !== 'the end' && (
         <>
           <input
@@ -279,7 +278,7 @@ function Game() {
         </>
       )}
 
-      {/* Botón comprobar solo para puzzle */}
+      {/* Botón comprobar puzzle */}
       {level.type === 'puzzle' && (
         <button onClick={checkPuzzle}>Comprobar</button>
       )}

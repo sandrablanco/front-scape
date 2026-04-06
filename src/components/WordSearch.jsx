@@ -53,7 +53,7 @@ function WordSearch({ onComplete }) {
 
   return (
     <div>
-      <p>Debes ir haciendo clic letra por letra: {WORDS.map(w => (
+      <p>Debes ir haciendo click letra por letra: {WORDS.map(w => (
         <span key={w} style={{
           marginRight: '10px',
           textDecoration: found.includes(w) ? 'line-through' : 'none',
