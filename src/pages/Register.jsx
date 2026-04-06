@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import '../Register.css' 
 
 function Register() {
     const [name, setName] = useState('')
@@ -27,13 +28,15 @@ function Register() {
     }
 
     return (
-        <div className="register">
+        <div className="registerContainer">
+           <div className="registerCard">
             <h2>Registrarse como nuevo usuario</h2>
             <input type="text" placeholder="Nombre" value={name} onChange={(e) => setName(e.target.value)} />
             <input type="text" placeholder="Apellido" value={surname} onChange={(e) => setSurname(e.target.value)} />
             <input type="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} />
             <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
             <button onClick={handleRegister}>Registrarse</button>
+           </div>
         </div>
     )
 }
