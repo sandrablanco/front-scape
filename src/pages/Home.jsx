@@ -9,7 +9,7 @@ function Home() {
     const token = localStorage.getItem('token')
 
     if (token) {
-      fetch('http://localhost:3000/auth/me', {
+      fetch('${import.meta.env.VITE_API_URL}/auth/me', {
         headers: {
           Authorization: `Bearer ${token}`
         }
