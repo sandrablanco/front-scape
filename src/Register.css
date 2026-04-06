@@ -35,9 +35,15 @@
 .registerCard button {
     padding: 10px;
     background-color: #095f84;
-    color: white;
+    color: #121b2f;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+
+    
+    &:hover {
+      background-color: #084a6b;
+       box-shadow: var(--shadow);
+    }
 }
