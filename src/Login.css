@@ -1,10 +1,13 @@
+/* .loginBody {
+    background: linear-gradient(135deg, #1e3c72, #8cafed);
+} */
+
 .loginContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient (to right,#0b3eb5, #8bc5f3);
-   
+    background: linear-gradient(135deg, #1e3c72, #8cafed);
 }
 
 .loginCard {

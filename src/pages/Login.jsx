@@ -32,7 +32,6 @@ return (
         <button onClick={handleLogin}>Iniciar Sesión</button>
         </div>
     </div>
-
 )
 }
 
