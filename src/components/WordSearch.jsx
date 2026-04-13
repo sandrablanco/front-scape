@@ -5,16 +5,17 @@ const GRID = [
   ['A','L','O','V','E','B','O','M','B','I','N','G','J','K','O'],
   ['S','R','X','Q','Z','W','K','P','S','T','U','V','R','L','M'],
   ['L','B','R','E','A','D','C','R','U','M','B','I','N','G','B'],
-  ['I','H','J','K','L','M','N','O','P','Q','R','S','N','M','I'],
-  ['G','R','Y','R','Q','U','Z','A','N','J','D','E','M','N','E'],
-  ['H','D','E','N','I','N','S','F','L','P','Ñ','R','V','H','I'],
-  ['T','Z','W','G','X','Y','Z','A','B','C','D','E','M','I','N'],
-  ['I','B','T','J','L','F','R','G','N','N','O','G','L','I','G'],
-  ['N','P','M','A','J','L','I','T','A','W','I','Ñ','M','T','X'],
-  ['G','I','V','W','X','Y','Z','A','B','C','H','E','M','U','S'],
+  ['I','E','J','K','L','M','N','O','P','Q','R','S','N','H','I'],
+  ['G','N','Y','R','Q','U','Z','A','N','J','D','E','A','N','E'],
+  ['H','C','E','N','I','N','S','F','L','P','Ñ','U','V','H','I'],
+  ['T','H','W','G','X','Y','Z','A','B','C','N','E','M','I','N'],
+  ['I','I','T','J','L','F','R','G','N','T','O','G','L','I','G'],
+  ['N','N','M','A','J','L','I','T','I','W','I','Ñ','M','T','X'],
+  ['G','G','V','W','X','Y','Z','N','B','C','H','E','M','U','S']
+  ['W','E','C','H','O','C','G','L','I','M','A','M','I','N','T'],
 ];
 
-const WORDS = ['GHOSTING', 'LOVEBOMBING', 'BREADCRUMBING', 'GASLIGHTING', 'ZOMBIEING'];
+const WORDS = ['GHOSTING', 'LOVEBOMBING', 'BREADCRUMBING', 'GASLIGHTING', 'ZOMBIEING', 'BENCHING', 'HAUNTING', 'STALKING', 'CUSHIONING'];
 
 function WordSearch({ onComplete }) {
   const [selected, setSelected] = useState([]);
