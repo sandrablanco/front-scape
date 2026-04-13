@@ -11,11 +11,24 @@ const GRID = [
   ['T','H','W','G','X','Y','Z','A','B','C','N','E','M','I','N','K'],
   ['I','I','T','J','L','F','R','G','N','T','O','G','L','I','G','L'],
   ['N','N','M','A','J','L','I','T','I','W','I','Ñ','M','T','X','A'],
-  ['G','G','V','W','X','Y','Z','N','B','C','H','E','M','U','S','T']
+  ['G','G','V','W','X','Y','Z','N','B','C','H','E','M','U','S','T'],
   ['W','E','C','H','O','C','G','L','I','M','A','M','I','N','T','S'],
 ];
 
 const WORDS = ['GHOSTING', 'LOVEBOMBING', 'BREADCRUMBING', 'GASLIGHTING', 'ZOMBIEING', 'BENCHING', 'HAUNTING', 'STALKING'];
+
+//palabras que sean en linea recta7
+
+function isValidLine(cells) {
+  if (cells.length < 2) return true;
+  const dr = cells[1].row - cells[0].row;
+  const dc = cells[1].col - cells[0].col;
+  for (let i = 1; i < cells.length; i++) {
+    if ((cells[i].row - cells[i - 1].row) !== dr) return false;
+    if ((cells[i].col - cells[i - 1].col) !== dc) return false;
+  }
+  return true;
+}
 
 function WordSearch({ onComplete }) {
   const [selected, setSelected] = useState([]);
@@ -34,12 +47,16 @@ function WordSearch({ onComplete }) {
     const newSelected = [...selected, { key: cellKey, row, col, letter: GRID[row][col] }];
     setSelected(newSelected);
 
+    //rechazamos si la palabra no forma una linea recta en cualquier dirección
+     if (!isValidLine(newSelected)) return;
+
+    setSelected(newSelected);
+
     const word = newSelected.map(c => c.letter).join('');
     const wordReverse = word.split('').reverse().join('');
+    const match = WORDS.find(w => w === word || w === wordReverse) && !found.includes(w);
 
-    const match = WORDS.find(w => w === word || w === wordReverse);
-
-    if (match && !found.includes(match)) {
+    if (match){
       const newFound = [...found, match];
       setFoundCells([...foundCells, ...newSelected.map(c => c.key)]);
       setFound(newFound);
