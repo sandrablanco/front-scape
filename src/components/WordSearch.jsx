@@ -17,7 +17,7 @@ const GRID = [
 
 const WORDS = ['GHOSTING', 'LOVEBOMBING', 'BREADCRUMBING', 'GASLIGHTING', 'ZOMBIEING', 'BENCHING', 'HAUNTING', 'STALKING'];
 
-//palabras que sean en linea recta7
+//palabras que sean en linea recta
 
 function isValidLine(cells) {
   if (cells.length < 2) return true;
@@ -63,8 +63,12 @@ function WordSearch({ onComplete }) {
       setSelected([]);
       alert(`¡Encontraste: ${match}! 🎉`);
 
-      if (newFound.length === WORDS.length) {
-        onComplete();
+      const CORRECT = ['LOVEBOMBING', 'BREADCRUMBING', 'GHOSTING', 'GASLIGHTING', 'ZOMBIEING'];
+      if (CORRECT.every(w => newFound.includes(w))) { 
+       onComplete();
+
+      // if (newFound.length === WORDS.length) {
+      //   onComplete();
       }
     }
   };
