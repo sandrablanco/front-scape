@@ -15,7 +15,7 @@ const GRID = [
   ['W','E','C','H','O','C','G','L','I','M','A','M','I','N','T','S'],
 ];
 
-const WORDS = ['GHOSTING', 'LOVEBOMBING', 'BREADCRUMBING', 'GASLIGHTING', 'ZOMBIEING', 'BENCHING', 'HAUNTING', 'STALKING'];
+const WORDS = ['LOVEBOMBING', 'BREADCRUMBING', 'GHOSTING', 'GASLIGHTING', 'ZOMBIEING', 'HAUNTING', 'STALKING', 'BENCHING'];
 
 //palabras que sean en linea recta
 
