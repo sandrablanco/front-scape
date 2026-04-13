@@ -63,7 +63,7 @@ function WordSearch({ onComplete }) {
       setSelected([]);
       alert(`¡Encontraste: ${match}! 🎉`);
 
-      const CORRECT = ['LOVEBOMBING', 'BREADCRUMBING', 'GHOSTING', 'GASLIGHTING', 'ZOMBIEING'];
+      const CORRECT = ['LOVEBOMBING', 'BREADCRUMBING', 'GHOSTING', 'GASLIGHTING', 'ZOMBIEING', 'HAUNTING', 'STALKING', 'BENCHING'];
       if (CORRECT.every(w => newFound.includes(w))) { 
        onComplete();
 
