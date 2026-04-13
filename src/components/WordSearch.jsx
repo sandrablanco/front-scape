@@ -1,21 +1,21 @@
 import {useState} from "react";
 
 const GRID = [
-  ['G','H','O','S','T','I','N','G','A','B','C','D','E','F','Z'],
-  ['A','L','O','V','E','B','O','M','B','I','N','G','J','K','O'],
-  ['S','R','X','Q','Z','W','K','P','S','T','U','V','R','L','M'],
-  ['L','B','R','E','A','D','C','R','U','M','B','I','N','G','B'],
-  ['I','E','J','K','L','M','N','O','P','Q','R','S','N','H','I'],
-  ['G','N','Y','R','Q','U','Z','A','N','J','D','E','A','N','E'],
-  ['H','C','E','N','I','N','S','F','L','P','Ñ','U','V','H','I'],
-  ['T','H','W','G','X','Y','Z','A','B','C','N','E','M','I','N'],
-  ['I','I','T','J','L','F','R','G','N','T','O','G','L','I','G'],
-  ['N','N','M','A','J','L','I','T','I','W','I','Ñ','M','T','X'],
-  ['G','G','V','W','X','Y','Z','N','B','C','H','E','M','U','S']
-  ['W','E','C','H','O','C','G','L','I','M','A','M','I','N','T'],
+  ['G','H','O','S','T','I','N','G','A','B','C','D','E','F','Z','P'],
+  ['A','L','O','V','E','B','O','M','B','I','N','G','J','K','O','E'],
+  ['S','R','X','Q','Z','W','K','P','S','T','U','V','R','L','M','R'],
+  ['L','B','R','E','A','D','C','R','U','M','B','I','N','G','B','A'],
+  ['I','E','J','K','L','M','N','O','P','Q','R','S','N','H','I','G'],
+  ['G','N','Y','R','Q','U','Z','A','N','J','D','E','A','N','E','N'],
+  ['H','C','E','N','I','N','S','F','L','P','Ñ','U','V','H','I','I'],
+  ['T','H','W','G','X','Y','Z','A','B','C','N','E','M','I','N','K'],
+  ['I','I','T','J','L','F','R','G','N','T','O','G','L','I','G','L'],
+  ['N','N','M','A','J','L','I','T','I','W','I','Ñ','M','T','X','A'],
+  ['G','G','V','W','X','Y','Z','N','B','C','H','E','M','U','S','T']
+  ['W','E','C','H','O','C','G','L','I','M','A','M','I','N','T','S'],
 ];
 
-const WORDS = ['GHOSTING', 'LOVEBOMBING', 'BREADCRUMBING', 'GASLIGHTING', 'ZOMBIEING', 'BENCHING', 'HAUNTING', 'STALKING', 'CUSHIONING'];
+const WORDS = ['GHOSTING', 'LOVEBOMBING', 'BREADCRUMBING', 'GASLIGHTING', 'ZOMBIEING', 'BENCHING', 'HAUNTING', 'STALKING'];
 
 function WordSearch({ onComplete }) {
   const [selected, setSelected] = useState([]);
