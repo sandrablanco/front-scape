@@ -63,8 +63,8 @@ function WordSearch({ onComplete }) {
       setSelected([]);
       alert(`¡Encontraste: ${match}! 🎉`);
 
-      const CORRECT = ['LOVEBOMBING', 'BREADCRUMBING', 'GHOSTING', 'GASLIGHTING', 'ZOMBIEING', 'HAUNTING', 'STALKING', 'BENCHING'];
-      if (CORRECT.every(w => newFound.includes(w))) { 
+      const correctAnswer = ['LOVEBOMBING', 'BREADCRUMBING', 'GHOSTING', 'GASLIGHTING', 'ZOMBIEING', 'HAUNTING', 'STALKING', 'BENCHING'];
+      if (correctAnswer.every(w => newFound.includes(w))) { 
        onComplete();
 
       // if (newFound.length === WORDS.length) {
