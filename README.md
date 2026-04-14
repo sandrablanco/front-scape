@@ -4,12 +4,12 @@ Aplicación web de tipo escape room donde los usuarios pueden registrarse, inici
 ***
 ## 🚀 Tecnologías
 
--Frontend
+- Frontend
 React + Vite
 CSS
 Axios
 
--Backend
+- Backend
 Node.js
 Express
 Base de datos (MongoDB)
