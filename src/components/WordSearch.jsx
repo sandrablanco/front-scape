@@ -15,7 +15,7 @@ const GRID = [
   ['W','E','C','H','O','C','R','L','I','M','A','M','I','N','T','S'],
 ];
 
-const WORDS = ['LOVEBOMBING', 'BREADCRUMBING', 'GHOSTING', 'GASLIGHTING', 'ZOMBIEING', 'STALKING', 'BENCHING'];
+const WORDS = ['GHOSTING', 'LOVEBOMBING', 'BREADCRUMBING', 'GASLIGHTING', 'ZOMBIEING', 'BENCHING', 'STALKING'];
 
 
 function WordSearch({ onComplete }) {
