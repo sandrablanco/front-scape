@@ -1,16 +1,73 @@
-# React + Vite
+🧩 ScapeRoom Online
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web de tipo escape room donde los usuarios pueden registrarse, iniciar sesión y resolver retos interactivos.
 
-Currently, two official plugins are available:
+🚀 Tecnologías
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+-Frontend
+React + Vite
+CSS
+Axios
 
-## React Compiler
+-Backend
+Node.js
+Express
+Base de datos (MongoDB)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔐Funcionalidades principales
+1.Registro de usuarios
+2.Inicio de sesión
+3.Sistema de autenticación
+4.Resolución y navegación de pruebas por niveles
 
-## Expanding the ESLint configuration
+⚙️ Instalación
+1. Clonar repositorio
+git clone <URL_DEL_REPO>
+cd nombre-del-proyecto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. Backend
+cd backend
+npm init -y
+npm install express mongoose cors dotenv bcrypt jsonwebtoken
+npm i nodemon --save-dev
+npm run dev
+
+3. Frontend
+cd frontend
+npm create vite @latest
+npm i react-router-dom
+npm install
+npm start
+
+🌐 Variables de entorno
+
+Crear archivo .env en backend con:
+
+PORT=3000
+DB_URI=tu_base_de_datos
+JWT_SECRET=tu_secreto
+
+🧠 Aprendizajes
+Manejo de autenticación
+Comunicación cliente-servidor
+Gestión de estado en React
+Diseño de interfaces
+
+
+## 🔗 Backend
+Este proyecto funciona con un repositorio en el frontend https://github.com/sandrablanco/front-scape.git y otro repositorio backend https://github.com/sandrablanco/back-scape.git desarrollado en Node.js. El frontend se comunica con el backend mediante una API REST.
+donde los endpoints principales son:
+- POST /login
+- POST /register
+
+
+📌 Mejoras futuras
+Implementar sopa de letras con más dificultad de palabras añadidas
+La narración de la historia sea contada en función del género del usuario registrado
+Tiempo límite por prueba
+Mejora en las css
+
+👩‍💻 Autor
+
+Sandra Blanco
+
