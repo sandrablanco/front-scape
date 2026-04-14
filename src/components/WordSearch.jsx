@@ -5,30 +5,30 @@ const GRID = [
   ['A','L','O','V','E','B','O','M','B','I','N','G','J','K','O','E'],
   ['S','R','X','Q','Z','W','K','P','S','T','U','V','R','L','M','R'],
   ['L','B','R','E','A','D','C','R','U','M','B','I','N','G','B','A'],
-  ['I','E','J','K','L','M','N','O','P','Q','R','S','N','H','I','G'],
+  ['I','E','J','K','L','M','N','O','P','Q','R','S','N','L','I','G'],
   ['G','N','Y','R','Q','U','Z','A','N','J','D','E','A','N','E','N'],
-  ['H','C','E','N','I','N','S','F','L','P','Ñ','U','V','H','I','I'],
-  ['T','H','W','G','X','Y','Z','A','B','C','N','E','M','I','N','K'],
-  ['I','I','T','J','L','F','R','G','N','T','O','G','L','I','G','L'],
-  ['N','N','M','A','J','L','I','T','I','W','I','Ñ','M','T','X','A'],
-  ['G','G','V','W','X','Y','Z','N','B','C','H','E','M','U','S','T'],
-  ['W','E','C','H','O','C','G','L','I','M','A','M','I','N','T','S'],
+  ['H','C','E','N','I','N','S','F','L','P','Ñ','N','V','H','I','I'],
+  ['T','H','W','G','X','Y','Z','A','B','C','I','E','M','I','N','K'],
+  ['I','I','T','J','L','F','R','G','N','S','O','G','L','I','G','L'],
+  ['N','N','M','A','J','L','I','T','T','W','I','Ñ','M','T','X','A'],
+  ['G','G','V','W','X','Y','Z','E','B','C','H','E','M','U','S','T'],
+  ['W','E','C','H','O','C','R','L','I','M','A','M','I','N','T','S'],
 ];
 
-const WORDS = ['LOVEBOMBING', 'BREADCRUMBING', 'GHOSTING', 'GASLIGHTING', 'ZOMBIEING', 'HAUNTING', 'STALKING', 'BENCHING'];
+const WORDS = ['LOVEBOMBING', 'BREADCRUMBING', 'GHOSTING', 'GASLIGHTING', 'ZOMBIEING', 'STALKING', 'BENCHING'];
 
 //palabras que sean en linea recta
 
-function isValidLine(cells) {
-  if (cells.length < 2) return true;
-  const dr = cells[1].row - cells[0].row;
-  const dc = cells[1].col - cells[0].col;
-  for (let i = 1; i < cells.length; i++) {
-    if ((cells[i].row - cells[i - 1].row) !== dr) return false;
-    if ((cells[i].col - cells[i - 1].col) !== dc) return false;
-  }
-  return true;
-}
+// function isValidLine(cells) {
+//   if (cells.length < 2) return true;
+//   const dr = cells[1].row - cells[0].row;
+//   const dc = cells[1].col - cells[0].col;
+//   for (let i = 1; i < cells.length; i++) {
+//     if ((cells[i].row - cells[i - 1].row) !== dr) return false;
+//     if ((cells[i].col - cells[i - 1].col) !== dc) return false;
+//   }
+//   return true;
+// }
 
 function WordSearch({ onComplete }) {
   const [selected, setSelected] = useState([]);
@@ -48,27 +48,27 @@ function WordSearch({ onComplete }) {
     setSelected(newSelected);
 
     //rechazamos si la palabra no forma una linea recta en cualquier dirección
-     if (!isValidLine(newSelected)) return;
+    //  if (!isValidLine(newSelected)) return;
 
-    setSelected(newSelected);
+    // setSelected(newSelected);
 
     const word = newSelected.map(c => c.letter).join('');
     const wordReverse = word.split('').reverse().join('');
-    const match = WORDS.find(w => w === word || w === wordReverse) && !found.includes(w);
+    const match = WORDS.find(w => w === word || w === wordReverse);
 
-    if (match){
+    if (match && !found.includes(match)) {
       const newFound = [...found, match];
       setFoundCells([...foundCells, ...newSelected.map(c => c.key)]);
       setFound(newFound);
       setSelected([]);
       alert(`¡Encontraste: ${match}! 🎉`);
 
-      const correctAnswer = ['LOVEBOMBING', 'BREADCRUMBING', 'GHOSTING', 'GASLIGHTING', 'ZOMBIEING', 'HAUNTING', 'STALKING', 'BENCHING'];
-      if (correctAnswer.every(w => newFound.includes(w))) { 
-       onComplete();
+      // const correctAnswer = ['LOVEBOMBING', 'BREADCRUMBING', 'GHOSTING', 'GASLIGHTING', 'ZOMBIEING', 'HAUNTING', 'STALKING', 'BENCHING'];
+      // if (correctAnswer.every(w => newFound.includes(w))) { 
+      //  onComplete();
 
-      // if (newFound.length === WORDS.length) {
-      //   onComplete();
+      if (newFound.length === WORDS.length) {
+        onComplete();
       }
     }
   };
