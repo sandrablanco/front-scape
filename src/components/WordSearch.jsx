@@ -17,18 +17,6 @@ const GRID = [
 
 const WORDS = ['LOVEBOMBING', 'BREADCRUMBING', 'GHOSTING', 'GASLIGHTING', 'ZOMBIEING', 'STALKING', 'BENCHING'];
 
-//palabras que sean en linea recta
-
-// function isValidLine(cells) {
-//   if (cells.length < 2) return true;
-//   const dr = cells[1].row - cells[0].row;
-//   const dc = cells[1].col - cells[0].col;
-//   for (let i = 1; i < cells.length; i++) {
-//     if ((cells[i].row - cells[i - 1].row) !== dr) return false;
-//     if ((cells[i].col - cells[i - 1].col) !== dc) return false;
-//   }
-//   return true;
-// }
 
 function WordSearch({ onComplete }) {
   const [selected, setSelected] = useState([]);
@@ -47,11 +35,6 @@ function WordSearch({ onComplete }) {
     const newSelected = [...selected, { key: cellKey, row, col, letter: GRID[row][col] }];
     setSelected(newSelected);
 
-    //rechazamos si la palabra no forma una linea recta en cualquier dirección
-    //  if (!isValidLine(newSelected)) return;
-
-    // setSelected(newSelected);
-
     const word = newSelected.map(c => c.letter).join('');
     const wordReverse = word.split('').reverse().join('');
     const match = WORDS.find(w => w === word || w === wordReverse);
@@ -62,10 +45,6 @@ function WordSearch({ onComplete }) {
       setFound(newFound);
       setSelected([]);
       alert(`¡Encontraste: ${match}! 🎉`);
-
-      // const correctAnswer = ['LOVEBOMBING', 'BREADCRUMBING', 'GHOSTING', 'GASLIGHTING', 'ZOMBIEING', 'HAUNTING', 'STALKING', 'BENCHING'];
-      // if (correctAnswer.every(w => newFound.includes(w))) { 
-      //  onComplete();
 
       if (newFound.length === WORDS.length) {
         onComplete();
