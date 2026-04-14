@@ -1,8 +1,8 @@
-🧩 ScapeRoom Online
+# 🧩 ScapeRoom Online
 
 Aplicación web de tipo escape room donde los usuarios pueden registrarse, iniciar sesión y resolver retos interactivos.
 ***
-🚀 Tecnologías
+## 🚀 Tecnologías
 
 -Frontend
 React + Vite
@@ -14,7 +14,7 @@ Node.js
 Express
 Base de datos (MongoDB)
 ***
-🔐Funcionalidades principales 
+## 🔐Funcionalidades principales 
 
 1. Registro de usuarios
 
@@ -24,7 +24,7 @@ Base de datos (MongoDB)
 
 4. Resolución y navegación de pruebas por niveles
 ***
-⚙️ Instalación
+## ⚙️ Instalación
 1. Clonar repositorio
 git clone <URL_DEL_REPO>
 cd nombre-del-proyecto
@@ -43,7 +43,7 @@ npm i react-router-dom
 npm install
 npm start
 ***
-🌐 Variables de entorno
+## 🌐 Variables de entorno
 
 Crear archivo .env en backend con:
 
@@ -51,7 +51,7 @@ Crear archivo .env en backend con:
 - DB_URI=tu_base_de_datos
 - JWT_SECRET=tu_secreto
 ***
-🧠 Aprendizajes
+## 🧠 Aprendizajes
 
 - Manejo de autenticación
 - Comunicación cliente-servidor
@@ -65,14 +65,14 @@ Este proyecto funciona con un repositorio en el frontend https://github.com/sand
 - POST /register
 
 ***
-📌 Mejoras futuras
+### 📌 Mejoras futuras
 
 - Implementar sopa de letras con más dificultad de palabras añadidas.
 - La narración de la historia sea contada en función del género del usuario registrado.
 - Tiempo límite por prueba.
 - Mejora en las css.
 
-👩‍💻 Autor
+### 👩‍💻 Autor
 
 Sandra Blanco
 
